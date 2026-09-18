@@ -14,8 +14,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #8f07a1;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* image customisation */
+.product_img{
+  object-fit: contain;
+  width: 100%;
+  height: 200px;
+}
+.carousel{
+  object-fit: cover;
+  width: 100%;
+
 }

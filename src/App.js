@@ -11,6 +11,7 @@ import Navbar from './components/Navbar';
 import Carousel from './components/Carousel';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import Footer from './components/Footer';
+import AboutUs from './components/AboutUs';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='/addstationeries' element={<AddStationeries/>}/>
         <Route path='/' element={<GetStationeries/>}/>
         <Route path='/make-payment' element={<MakePayment/>}/>
+        <Route path='/aboutus' element={<AboutUs/>}/>
       </Routes>
 
       {/* FOOTER */}

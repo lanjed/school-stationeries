@@ -1,6 +1,6 @@
-import image1 from '../Images/carousel 8.jpg'
-import image2 from '../Images/carousel 9.webp'
-import image3 from '../Images/carousel 5.jpg'
+import image1 from '../Images/carousel 17.jpg'
+import image2 from '../Images/carousel 10.jpeg'
+import image3 from '../Images/carousel 14.jpg'
 
 const Carousel = () => {
   return (
@@ -16,13 +16,13 @@ const Carousel = () => {
       {/* Slides */}
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src={image1} className="d-block  carousel" height="500px" alt="slide 1" />
+          <img src={image1} className="d-block  carousel" height="700px" alt="slide 1" />
         </div>
         <div className="carousel-item">
-          <img src={image2} className="d-block  carousel" height="500px"  alt="slide 2" />
+          <img src={image2} className="d-block  carousel" height="700px"  alt="slide 2" />
         </div>
         <div className="carousel-item">
-          <img src={image3} className="d-block  carousel" height="500px"  alt="slide 3" />
+          <img src={image3} className="d-block  carousel" height="700px"  alt="slide 3" />
         </div>
       </div>
 

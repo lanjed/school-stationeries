@@ -86,6 +86,12 @@ function Navbar() {
                   Signin
                 </NavLink>
               </li>
+
+              <li className="nav-item">
+                <NavLink to="/aboutus" className="nav-link text-dark">
+                  About us
+                </NavLink>
+              </li>
             </>
           )}
 

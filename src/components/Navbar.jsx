@@ -1,10 +1,13 @@
 // components/Navbar.jsx
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useCart } from "./CartContext";
 
 function Navbar() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+  const { cartItems } = useCart();
 
   // Load user from localStorage
   useEffect(() => {
@@ -92,8 +95,20 @@ function Navbar() {
                   About us
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="/contactus" className="nav-link text-dark">
+                  Contact Us
+                </NavLink>
+              </li>
             </>
           )}
+
+          {/* Cart Icon stays outside the collapsible menu */}
+            <div className="cart-icon ms-auto">
+              <Link className="nav-link link text-dark" to="/cart">
+                Cart 🛒 <span>({cartItems.length})</span>
+              </Link>
+            </div>
 
         </ul>
       </div>

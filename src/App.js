@@ -12,10 +12,14 @@ import Carousel from './components/Carousel';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
+import Cart from './components/Cart';
+import { CartProvider } from './components/CartContext';
 
 function App() {
   return (
     <Router>
+      <CartProvider>
     <div className="App">
       <header className='App-header'>
         <h1>School Stationeries - Buy & Sell</h1>
@@ -34,12 +38,15 @@ function App() {
         <Route path='/' element={<GetStationeries/>}/>
         <Route path='/make-payment' element={<MakePayment/>}/>
         <Route path='/aboutus' element={<AboutUs/>}/>
+        <Route path="/contactus" element={<ContactUs/>}/>
+        <Route path="/cart" element={<Cart/>}/>
       </Routes>
 
       {/* FOOTER */}
       <Footer/>
       
     </div>
+    </CartProvider>
     </Router>
   );
 }

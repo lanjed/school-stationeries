@@ -1,6 +1,7 @@
 import  { useEffect, useState } from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom';
+import { useCart } from './CartContext';
 
 const GetStationeries = () => {
   // declare hooks
@@ -15,6 +16,8 @@ const GetStationeries = () => {
 
   // navigation hook
   const navigate = useNavigate();
+
+  const { addToCart } = useCart(); // Add to cart function
 
 
   // implement get product function
@@ -65,7 +68,12 @@ const GetStationeries = () => {
             <p className='text-muted'>{product.product_description}</p>
             {/* product cost */}
             <b className='text-success'>ksh. {product.product_cost}</b><br />
-            <button className='btn btn-outline-info mt-2 w-100'>Add to cart</button><br />
+            <button
+                      className="btn btn-outline-light"
+                      onClick={() => addToCart(product)}
+                    >
+                      Add to Cart
+                    </button><br />
             <button className='btn btn-dark mt-2 w-100' onClick={()=>{navigate("/make-payment", {state:{product}})}}>Make payments</button>
 
           </div>

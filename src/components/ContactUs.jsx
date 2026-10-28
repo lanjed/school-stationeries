@@ -2,9 +2,9 @@ import image4 from '../Images/phone call.jpg'
 const ContactUs = () => {
     return(
         
-            <div className="row mt-5 bg bg-primary">
+            <div className="row m-5 bg bg-secondary">
                 <div className="col-md-6 ">
-                    <h2 className="text-dark mt-5">Contact Us</h2>
+                    <h2 className="text-white mt-5 mb-5">Contact Us</h2>
                     <form>
                         <input type="text" 
                         placeholder="Write your name"
@@ -23,7 +23,7 @@ const ContactUs = () => {
 
                 </div>
                 <div className="col-md-6 ">
-                    <h2 className='text-light mt-5'>You can call us also</h2>
+                    <h2 className='text-light mt-5'>You can also call us</h2>
                     <h4>The phone number is written on our contact page</h4>
                     <img src={image4} alt="" className='mb-5' />
                 </div>

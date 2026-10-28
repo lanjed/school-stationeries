@@ -39,20 +39,20 @@ const MakePayment = () => {
     }
   }
   return (
-    <div className='row justify-content-center mt-4'>
+    <div className='row justify-content-center mt-4 bg bg-secondary'>
       <h1>Make Payments - Lipa Na MPESA</h1>
-      <div className='col-md-3 card shadow card-margin p-5'>
+      <div className='col-md-3 card shadow card-margin p-5 mb-3'>
 
         <img 
         src={img_url + product.product_photo} 
         alt={product.product_photo} 
         className='product_img rounded'/>
         {/* product name */}
-        <h4 className='text-info text-start'>{product.product_name}</h4>
+        <h4 className='text-primary text-start'>{product.product_name}</h4>
         {/* product description */}
         <p className='text-start'>{product.product_description}</p>
         {/* product cost */}
-        <b className='text-warning text-start'>ksh. {product.product_cost}</b>
+        <b className='text-success text-start'>ksh. {product.product_cost}</b>
 
         {/* mpesa number input form */}
         <form onSubmit={submitForm}>
@@ -69,7 +69,7 @@ const MakePayment = () => {
           <br />
 
           {/* submit button */}
-          <button className='btn btn-success w-100'>
+          <button className='btn btn-danger w-100'>
             Make payment
           </button>
         </form>

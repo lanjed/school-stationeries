@@ -60,7 +60,7 @@ const AddStationeries = () => {
 
   }
   return (
-    <div className='row justify-content-center mt-4'>
+    <div className='row justify-content-center mt-4 mb-4'>
       <div className='col-md-6 card shadow p-4'>
          <h1>Add Stationeries</h1>
         <form onSubmit={submitForm}>

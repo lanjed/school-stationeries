@@ -15,13 +15,13 @@ const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="container mt-4 text-light">
-      <h2>Your Cart</h2>
+    <div className="container mt-4 mb-4 text-light bg bg-primary">
+      <h2><b>Your Cart</b></h2>
       {cartItems.length === 0 ? (
         <div className="text-center">
           <p>No items in cart.</p>
           <button
-            className="btn btn-primary"
+            className="btn btn-info mb-4"
             onClick={() => navigate("/")}
           >
             Start Shopping
@@ -62,7 +62,7 @@ const Cart = () => {
                   </div>
                   <p className="mt-2">
                     Subtotal:{" "}
-                    <b className="text-warning">
+                    <b className="text-dark">
                       Ksh. {item.product_cost * item.quantity}
                     </b>
                   </p>
@@ -84,19 +84,19 @@ const Cart = () => {
               </div>
             ))}
           </div>
-          <h4 className="mt-3 text-success">
+          <h4 className="mt-3 text-white">
             Total Price: Ksh. {getTotalPrice()}
           </h4>
 
           <button
-            className="btn btn-success mt-2 me-2"
+            className="btn btn-success mt-2 me-2 mb-2"
             onClick={() => navigate("/make-payment", { state: { cart: cartItems } })}
           >
             Buy All
           </button>
           <br />
 
-          <button className="btn btn-warning mt-2" onClick={clearCart}>
+          <button className="btn btn-info mt-2 mb-3" onClick={clearCart}>
             Clear Cart
           </button>
         </>

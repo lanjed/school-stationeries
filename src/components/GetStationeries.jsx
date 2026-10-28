@@ -45,8 +45,8 @@ const GetStationeries = () => {
    )
 
   return (
-    <div className='row'>
-      <h2 className='mt-5 text-primary '><u>Available School Stationeries</u></h2>
+    <div className='row bg bg-secondary mt-5'>
+      <h2 className='mt-5 text-white '><u>Available School Stationeries</u></h2>
 
       <p className='bg-warning text-light rounded'>{loading}</p>
       <p className='bg-danger text-light rounded'>{error}</p>
@@ -54,8 +54,8 @@ const GetStationeries = () => {
 
       {/* map every product to template and display */}
       {stationeries.map((product)=>(
-      <div className='col-md-3 justify-content-center mb-4' key={product.product_id}>
-        <div className='card shadow card-margin'>
+      <div className='col-md-3 justify-content-center mb-4 h-100 w-50' key={product.product_id}>
+        <div className='card shadow card-margin '>
            {/* image section */}
           <img 
           src={img_url + product.product_photo}
@@ -63,18 +63,18 @@ const GetStationeries = () => {
           className='product_img mt-4'/>
           <div className='card-body'>
             {/* product name */}
-            <h4 className='mt-2 text-primary'>{product.product_name}</h4>
+            <h4 className='mt-2 text-primary'><b>{product.product_name}</b></h4>
             {/* product description */}
             <p className='text-muted'>{product.product_description}</p>
             {/* product cost */}
-            <b className='text-success'>ksh. {product.product_cost}</b><br />
+            <b className='text-success'><b>ksh. {product.product_cost}</b></b><br />
             <button
-                      className="btn btn-outline-light"
+                      className="btn btn-outline-dark"
                       onClick={() => addToCart(product)}
                     >
                       Add to Cart
                     </button><br />
-            <button className='btn btn-dark mt-2 w-100' onClick={()=>{navigate("/make-payment", {state:{product}})}}>Make payments</button>
+            <button className='btn btn-info mt-2 w-50' onClick={()=>{navigate("/make-payment", {state:{product}})}}>Make payments</button>
 
           </div>
         </div>

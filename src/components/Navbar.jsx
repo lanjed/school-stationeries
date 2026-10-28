@@ -26,7 +26,7 @@ function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-info px-4">
-      <NavLink className="navbar-brand text-warning fw-bold" to="/">
+      <NavLink className="navbar-brand text-white fw-bold" to="/">
         School Stationeries
       </NavLink>
 
@@ -45,13 +45,13 @@ function Navbar() {
 
           {/* Always visible */}
           <li className="nav-item">
-            <NavLink to="/" className="nav-link text-dark">
+            <NavLink to="/" className="nav-link text-dark text-decoration-underline">
               Stationeries
             </NavLink>
           </li>
 
           <li className="nav-item">
-            <NavLink to="/addstationeries" className="nav-link text-dark">
+            <NavLink to="/addstationeries" className="nav-link text-dark text-decoration-underline">
               Add Stationeries
             </NavLink>
           </li>
@@ -79,24 +79,24 @@ function Navbar() {
           ) : (
             <>
               <li className="nav-item">
-                <NavLink to="/signup" className="nav-link text-dark">
+                <NavLink to="/signup" className="nav-link text-dark text-decoration-underline">
                   Signup
                 </NavLink>
               </li>
 
               <li className="nav-item">
-                <NavLink to="/signin" className="nav-link text-dark">
+                <NavLink to="/signin" className="nav-link text-dark text-decoration-underline">
                   Signin
                 </NavLink>
               </li>
 
               <li className="nav-item">
-                <NavLink to="/aboutus" className="nav-link text-dark">
+                <NavLink to="/aboutus" className="nav-link text-dark text-decoration-underline">
                   About us
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/contactus" className="nav-link text-dark">
+                <NavLink to="/contactus" className="nav-link text-dark text-decoration-underline">
                   Contact Us
                 </NavLink>
               </li>
@@ -105,7 +105,7 @@ function Navbar() {
 
           {/* Cart Icon stays outside the collapsible menu */}
             <div className="cart-icon ms-auto">
-              <Link className="nav-link link text-dark" to="/cart">
+              <Link className="nav-link link text-dark text-decoration-underline" to="/cart">
                 Cart 🛒 <span>({cartItems.length})</span>
               </Link>
             </div>

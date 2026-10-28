@@ -50,7 +50,7 @@ const SignUp = () => {
 
     }
   return (
-    <div className='row justify-content-center mt-4'>
+    <div className='row justify-content-center mt-4 mb-4'>
       <div className='col-md-6 card shadow p-5'>
         <h2>Sign Up</h2>
         <form onSubmit={submitForm}>

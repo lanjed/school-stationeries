@@ -1,6 +1,6 @@
-import image1 from '../Images/carousel 17.jpg'
+import image1 from '../Images/carousel 20.webp'
 import image2 from '../Images/carousel 10.jpeg'
-import image3 from '../Images/carousel 14.jpg'
+import image3 from '../Images/carousel 19.jpg'
 
 const Carousel = () => {
   return (

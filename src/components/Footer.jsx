@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light mt-5">
+    <footer className="bg-dark text-light">
       <div className="container py-4">
         <div className="row">
 
@@ -16,13 +16,13 @@ const Footer = () => {
           <div className="col-md-3 mb-3">
             <h5>Quick Links</h5>
             <ul className="list-unstyled">
-              <li><a href="/" className="text-light text-decoration-none">Home</a></li>
-              <li><a href="/" className="text-light text-decoration-none">Stationeries</a></li>
+              <li><a href="/" className="text-light text-decoration-underline mb-2">Home</a></li>
+              <li><a href="/" className="text-light text-decoration-underline mb-2">Stationeries</a></li>
 
                           
-              <li><a href="/contactus" className="text-light text-decoration-none">Contact Us</a></li>
+              <li><a href="/contactus" className="text-light text-decoration-underline mb-2">Contact Us</a></li>
               
-              <li><a href="/aboutus" className="text-light text-decoration-none">About us</a></li>
+              <li><a href="/aboutus" className="text-light text-decoration-underline">About us</a></li>
               
 
             </ul>

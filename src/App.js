@@ -22,7 +22,7 @@ function App() {
       <CartProvider>
     <div className="App">
       <header className='App-header'>
-        <h1>School Stationeries - Buy & Sell</h1>
+        <h1>SCHOOL STATIONERIES - BUY & SELL</h1>
       </header>
       
       {/* this is a navbar */}

@@ -3,9 +3,11 @@ import axios from "axios"
 import { useNavigate } from 'react-router-dom';
 import { useCart } from './CartContext';
 
+
 const GetStationeries = () => {
   // declare hooks
   const[stationeries, setStationeries] = useState ([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // declare feedback hooks
   const[loading, setLoading] = useState ("");
@@ -36,6 +38,14 @@ const GetStationeries = () => {
     }
   }
 
+  const filteredStationeries = stationeries.filter(
+    (product) =>
+      product.product_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.product_description
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase())
+  );
+
   // use useEffect to load products from the database/api
    useEffect(()=>{
     GetProducts()
@@ -45,43 +55,69 @@ const GetStationeries = () => {
    )
 
   return (
-    <div className='row bg bg-secondary mt-5'>
+    <div className='row bg bg-secondary mt-5 mb-5'>
       <h2 className='mt-5 text-white '><u>Available School Stationeries</u></h2>
 
       <p className='bg-warning text-light rounded'>{loading}</p>
       <p className='bg-danger text-light rounded'>{error}</p>
 
+      {/* Search Bar */}
+      <input
+        type="text"
+        placeholder="Search products..."
+        className="form-control my-3 w-50 mx-auto"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
 
-      {/* map every product to template and display */}
-      {stationeries.map((product)=>(
-      <div className='col-md-3 justify-content-center mb-4 h-100 w-50' key={product.product_id}>
-        <div className='card shadow card-margin '>
-           {/* image section */}
-          <img 
-          src={img_url + product.product_photo}
-          alt={product.product_photo}
-          className='product_img mt-4'/>
-          <div className='card-body'>
-            {/* product name */}
-            <h4 className='mt-2 text-primary'><b>{product.product_name}</b></h4>
-            {/* product description */}
-            <p className='text-muted'>{product.product_description}</p>
-            {/* product cost */}
-            <b className='text-success'><b>ksh. {product.product_cost}</b></b><br />
-            <button
-                      className="btn btn-outline-dark"
+
+      {/* Display Products */}
+      <div className="row">
+        {filteredStationeries.length > 0 ? (
+          filteredStationeries.map((product) => (
+            <div key={product.id} className="col-md-3 mb-4 ">
+              <div className="card shadow bg-light text-center p-3 ">
+                <img
+                  src={img_url + product.product_photo}
+                  className="product_img mt-2"
+                  alt={product.product_name}
+                  style={{ width: "100%", height: "200px", objectFit: "" }}
+                />
+                <div className="card-body">
+                  <h5 className="text-primary"><b>{product.product_name}</b></h5>
+                  <p className="text-dark">
+                    {product.product_description}
+                  </p>
+                  <b className="text-success"><b>Ksh. {product.product_cost}</b></b>
+                  <div className="mt-2 d-flex flex-column gap-2">
+                    
+                    <button
+                      className="btn btn-outline-dark "
                       onClick={() => addToCart(product)}
                     >
                       Add to Cart
-                    </button><br />
-            <button className='btn btn-info mt-2 w-50' onClick={()=>{navigate("/make-payment", {state:{product}})}}>Make payments</button>
-
-          </div>
-        </div>
+                    </button>
+                    <button
+                      className="btn btn-info"
+                      onClick={() =>
+                        navigate("/make-payment", { state: { product } })
+                      }
+                    >
+                      Make Payment
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="text-light">No products found.</p>
+        )}
       </div>
-      ))}
     </div>
-  )
-}
+
+)}
+    
+  
 
 export default GetStationeries

@@ -12,7 +12,7 @@ const ContactUs = () => {
                         <input type="email" 
                         placeholder="Enter your email"
                         className='form-control'/> <br /><br />
-                        <input type="phone" 
+                        <input type="tel" 
                         placeholder="Enter your phone number"
                         className='form-control'/> <br /><br />
 

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCart } from "../components/CartContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Cart = () => {
+  const {product} = useLocation().state || {};
   const {
     cartItems,
     removeFromCart,
@@ -11,6 +13,37 @@ const Cart = () => {
     clearCart,
     getTotalPrice,
   } = useCart();
+
+  // initialize hooks for the form
+  const[phone, setPhone] = useState("")
+
+  // feedback hooks
+  const[success, setSuccess] = useState("")
+  const[error, setError] = useState("")
+  const[loading, setLoading] = useState("")
+
+  const submitForm = async (e) =>{
+    e.preventDefault();
+    // loading feedback for user
+    setLoading("Please wait as we process your payment");
+    try {
+      // prepare dat to make payments
+      const data = new FormData();
+      data.append("phone", phone);
+      data.append("amount", product.product_cost);
+
+      // post data to api to complete the payment
+      const response = await axios.post("https://jeddy.alwaysdata.net/api/mpesa_payment", data)
+      
+      setLoading("")
+      setSuccess(response.data.message)
+      
+    } catch (error) {
+      setLoading("")
+      setError(error.message);
+      
+    }
+  }
 
   const navigate = useNavigate();
 
@@ -75,7 +108,7 @@ const Cart = () => {
                   <button
                     className="btn btn-info mt-2 ms-2"
                     onClick={() =>
-                      navigate("/payment", { state: { product: item } })
+                      navigate("/make-payment", { state: { product: item } })
                     }
                   >
                     Buy Now
@@ -88,15 +121,25 @@ const Cart = () => {
             Total Price: Ksh. {getTotalPrice()}
           </h4>
 
-          <button
-            className="btn btn-success mt-2 me-2 mb-2"
-            onClick={() => navigate("/make-payment", { state: { cart: cartItems } })}
-          >
-            Buy All
-          </button>
+          <form onSubmit={submitForm}>
+            {error}
+            {success}
+            {loading}
+            <input type="tel" 
+            placeholder="Enter phone (2547xxxxxxxx)"
+            className='form-control w-50 p-10'
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}/>
+          </form>
           <br />
 
-          <button className="btn btn-info mt-2 mb-3" onClick={clearCart}>
+          <button
+          className="btn btn-dark mt-2 "
+          >
+            Pay Total
+          </button><br />
+
+          <button className="btn btn-info mt-2 mb-3 " onClick={clearCart}>
             Clear Cart
           </button>
         </>

@@ -76,7 +76,7 @@ const GetStationeries = () => {
         {filteredStationeries.length > 0 ? (
           filteredStationeries.map((product) => (
             <div key={product.id} className="col-md-3 mb-4 ">
-              <div className="card shadow bg-light text-center p-3 ">
+              <div className="card shadow bg-light text-center p-3">
                 <img
                   src={img_url + product.product_photo}
                   className="product_img mt-2"

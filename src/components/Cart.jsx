@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useCart } from "../components/CartContext";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Cart = () => {
-  const {product} = useLocation().state || {};
+ 
   const {
     cartItems,
     removeFromCart,
@@ -30,8 +30,8 @@ const Cart = () => {
       // prepare dat to make payments
       const data = new FormData();
       data.append("phone", phone);
-      data.append("amount", product.product_cost);
-
+      data.append("amount", getTotalPrice());
+    
       // post data to api to complete the payment
       const response = await axios.post("https://jeddy.alwaysdata.net/api/mpesa_payment", data)
       
@@ -130,14 +130,14 @@ const Cart = () => {
             className='form-control w-50 p-10'
             value={phone}
             onChange={(e) => setPhone(e.target.value)}/>
-          </form>
-          <br />
 
-          <button
+            <button
           className="btn btn-dark mt-2 "
+          type="submit"
           >
             Pay Total
-          </button><br />
+          </button>
+          </form>
 
           <button className="btn btn-info mt-2 mb-3 " onClick={clearCart}>
             Clear Cart

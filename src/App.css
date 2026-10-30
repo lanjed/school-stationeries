@@ -42,10 +42,17 @@
   object-fit: contain;
   width: 100%;
   height: 200px;
+  
 }
 .carousel{
   object-fit: cover;
   width: 100%;
 
 }
+
+.product_img:hover{
+  transform: scale(1.2);
+}
+
+
 

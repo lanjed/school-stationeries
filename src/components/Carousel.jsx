@@ -4,6 +4,7 @@ import image3 from '../Images/carousel 19.jpg'
 
 const Carousel = () => {
   return (
+    
     <div id="carouselExample" className="carousel slide row justify-content-center mt-5" data-bs-ride="carousel">
       
       {/* Indicators */}

@@ -25,6 +25,7 @@ function App() {
         <h1>SCHOOL STATIONERIES - BUY & SELL</h1>
       </header>
       
+      
       {/* this is a navbar */}
       <Navbar/>
 
